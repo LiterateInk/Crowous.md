@@ -1,0 +1,51 @@
+---
+title: Feeds
+description: Get a list of available feeds.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## What is a feed?
+
+A feed is a specific Crous. There's multiple Crous in France, each one has its own feed. To access a feed you need to know its identifier, which is unique.
+
+<Tabs>
+  <TabItem label=".ts">
+```typescript
+import * as crous from "crowous";
+
+const feeds = await crous.feeds();
+
+for (const feed of feeds) {
+  console.log(`${feed.name} (${feed.identifier})`);
+}
+```
+  </TabItem>
+  <TabItem label=".rs">
+```rust
+use crowous::services::get_available_crous;
+
+#[tokio::main]
+async fn main() {
+  let available_crous = get_available_crous().await.unwrap();
+
+  for crous in available_crous {
+    println!("{} ({})", crous.name, crous.identifier);
+  }
+}
+```
+  </TabItem>
+  <TabItem label=".kt">
+```kotlin
+import ink.literate.crowous.api.feeds
+
+suspend fun main() {
+  val feeds = feeds()
+
+  for (feed in feeds) {
+    println("${feed.name} (${feed.identifier})")
+  }
+}
+```
+  </TabItem>
+</Tabs>
