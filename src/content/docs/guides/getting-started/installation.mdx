@@ -1,0 +1,78 @@
+---
+title: Installation
+description: Get ready to install and use Crowous.
+next: false
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+<Tabs>
+  <TabItem label=".ts">
+    You can use the package manager of your choice to install this library.
+
+    <Tabs>
+      <TabItem label="bun">
+      ```bash
+      bun add crowous
+      ```
+      </TabItem>
+      <TabItem label="pnpm">
+      ```bash
+      pnpm add crowous
+      ```
+      </TabItem>
+      <TabItem label="yarn">
+      ```bash
+      yarn add crowous
+      ```
+      </TabItem>
+      <TabItem label="npm">
+      ```bash
+      npm add crowous
+      ```
+      </TabItem>
+    </Tabs>
+
+    There's a bit more of setup if you're using [React Native](https://reactnative.dev/) or [Tauri](https://tauri.app/).
+
+    <Tabs>
+      <TabItem label="React Native">
+        This library uses [`react-native-real-fetch`](https://github.com/Vexcited/react-native-real-fetch) under the hood to make HTTP requests,
+        this is why you're required to also install the following native modules.
+
+        <Tabs>
+          <TabItem label="Expo">
+          ```bash
+          npx expo add react-native-real-fetch react-native-nitro-modules
+          npx expo prebuild
+          ```
+          </TabItem>
+          <TabItem label="Bare">
+          ```bash
+          npm add react-native-real-fetch react-native-nitro-modules
+          cd ios && pod install
+          ```
+          </TabItem>
+        </Tabs>
+      </TabItem>
+      <TabItem label="Tauri">
+        You should setup [Tauri's HTTP plugin](https://tauri.app/plugin/http-client/) and add the following allowed URL to the permissions.
+        ```json
+        {
+          "permissions": [
+            {
+              "identifier": "http:default",
+              "allow": [{ "url": "http://webservices-v2.crous-mobile.fr/feed/*" }],
+            }
+          ]
+        }
+        ```
+      </TabItem>
+    </Tabs>
+  </TabItem>
+  <TabItem label=".rs">
+  ```bash
+  cargo add crowous
+  ```
+  </TabItem>
+</Tabs>
