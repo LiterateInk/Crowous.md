@@ -8,8 +8,6 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 <Tabs>
   <TabItem label=".ts">
-    You can use the package manager of your choice to install this library.
-
     <Tabs>
       <TabItem label="bun">
       ```bash
@@ -33,9 +31,11 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
       </TabItem>
     </Tabs>
 
-    There's a bit more of setup if you're using [React Native](https://reactnative.dev/) or [Tauri](https://tauri.app/).
 
     <Tabs>
+      <TabItem label="Node.js, Deno, Bun">
+        {/* Keep this empty, so it says that we're good to go! */}
+      </TabItem>
       <TabItem label="React Native">
         This library uses [`react-native-real-fetch`](https://github.com/Vexcited/react-native-real-fetch) under the hood to make HTTP requests,
         this is why you're required to also install the following native modules.
@@ -76,3 +76,5 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
   ```
   </TabItem>
 </Tabs>
+
+You're ready to go!
