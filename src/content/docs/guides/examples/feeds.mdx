@@ -1,9 +1,11 @@
 ---
 title: Feeds
 description: Get a list of available feeds.
+prev: false
+next: false
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 ## What is a feed?
 
@@ -17,9 +19,10 @@ import * as crous from "crowous";
 const feeds = await crous.feeds();
 
 for (const feed of feeds) {
-  console.log(`${feed.name} (${feed.identifier})`);
+console.log(`${feed.name} (${feed.identifier})`);
 }
-```
+
+````
   </TabItem>
   <TabItem label=".rs">
 ```rust
@@ -33,19 +36,22 @@ async fn main() {
     println!("{} ({})", crous.name, crous.identifier);
   }
 }
-```
+````
+
   </TabItem>
   <TabItem label=".kt">
 ```kotlin
 import ink.literate.crowous.api.feeds
 
 suspend fun main() {
-  val feeds = feeds()
+val feeds = feeds()
 
-  for (feed in feeds) {
-    println("${feed.name} (${feed.identifier})")
-  }
+for (feed in feeds) {
+println("${feed.name} (${feed.identifier})")
 }
+}
+
 ```
   </TabItem>
 </Tabs>
+```
